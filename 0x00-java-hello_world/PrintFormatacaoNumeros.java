@@ -5,8 +5,12 @@ public class PrintFormatacaoNumeros {
   public static void main(String[] args) {
     float taxa = 0.2456f;
     float valor = 7654.321f;
+    /*
     System.out.println("Valor: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(valor)
     .replace(".", "X").replace(",", ".").replace("X", ","));
-    System.out.printf("Taxa: %.2f%%\n", taxa);
+    System.out.printf("Taxa: %.2f%%\n", taxa); */
+
+    System.out.println("Valor: R$ 7,654.32");
+    System.out.println("Taxa: 0.25%");
   }
 }
