@@ -6,7 +6,7 @@ public class PrintFormatacaoNumeros {
     float taxa = 0.2456f;
     float valor = 7654.321f;
     System.out.println("Valor: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(valor)
-    .replace(".", ","));
+    .replace(".", "X").replace(",", ".").replace("X", ","));
     System.out.printf("Taxa: %.2f%%\n", taxa);
   }
 }
