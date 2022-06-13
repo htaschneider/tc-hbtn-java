@@ -4,7 +4,7 @@ public class InteiroPositivo {
 
   public InteiroPositivo(int valor) {
     if (valor < 0) {
-      throw new RuntimeException("Valor nao eh um valor inteiro positivo");
+      throw new IllegalArgumentException("Valor nao eh um valor inteiro positivo");
     }
     this.valor = valor;
   }
@@ -13,12 +13,12 @@ public class InteiroPositivo {
     try {
       int val = Integer.parseInt(valor);
       if (val < 0) {
-        throw new RuntimeException("Valor nao eh um valor inteiro positivo");
+        throw new IllegalArgumentException("Valor nao eh um valor inteiro positivo");
       }
       this.valor = val;
 
     } catch (NumberFormatException ex) {
-      throw new RuntimeException("Valor nao eh um valor inteiro positivo");
+      throw new IllegalArgumentException("Valor nao eh um valor inteiro positivo");
     }
   }
 
@@ -26,9 +26,9 @@ public class InteiroPositivo {
     return this.valor;
   }
 
-  public void setValor(int novo_valor) throws RuntimeException {
+  public void setValor(int novo_valor) {
     if (novo_valor < 0) {
-      throw new RuntimeException("Valor nao eh um valor inteiro positivo");
+      throw new IllegalArgumentException("Valor nao eh um valor inteiro positivo");
     }
     this.valor = novo_valor;
   }
