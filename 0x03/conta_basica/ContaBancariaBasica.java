@@ -24,14 +24,14 @@ public class ContaBancariaBasica {
     }
 
     public void depositar(double valor) throws OperacaoInvalidaException {
-        if (valor <= 0) {
+        if (valor <= 0.0) {
             throw new OperacaoInvalidaException("Valor para deposito deve ser maior que 0");
         }
         saldo += valor;
     }
 
     public void sacar(double valor) throws OperacaoInvalidaException {
-        if (valor <= 0) {
+        if (valor <= 0.0) {
             throw new OperacaoInvalidaException("Valor para deposito deve ser maior que 0");
         } else if (valor > saldo) {
             throw new OperacaoInvalidaException("Valor de saque deve ser menor que o saldo atual");
@@ -44,8 +44,16 @@ public class ContaBancariaBasica {
         return Math.min(0.1 * saldo, 10.00);
     }
 
+    public double calcularJurosMensal() {
+        if (saldo <= 0) {
+            return 0.0;
+        }
+
+        return saldo * (taxaJurosAnual / 100 / 12);
+    }
+
     public void aplicarAtualizacaoMensal() {
-        this.saldo -= calcularTarifaMensal();
+        saldo = (saldo + calcularJurosMensal()) - calcularTarifaMensal();
     }
 
 
