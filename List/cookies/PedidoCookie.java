@@ -1,10 +1,10 @@
 public class PedidoCookie {
     private String sabor;
-    private int quantidadeDeCaixas;
+    private int quantidadeCaixas;
 
-    public PedidoCookie(String sabor, int quantidadeDeCaixas) {
+    public PedidoCookie(String sabor, int quantidadeCaixas) {
         this.sabor = sabor;
-        this.quantidadeDeCaixas = quantidadeDeCaixas;
+        this.quantidadeCaixas = quantidadeCaixas;
     }
 
     public String getSabor() {
@@ -16,11 +16,11 @@ public class PedidoCookie {
     }
 
     public int getQuantidadeDeCaixas() {
-        return quantidadeDeCaixas;
+        return quantidadeCaixas;
     }
 
-    public void setQuantidadeDeCaixas(int quantidadeDeCaixas) {
-        this.quantidadeDeCaixas = quantidadeDeCaixas;
+    public void setQuantidadeDeCaixas(int quantidadeCaixas) {
+        this.quantidadeCaixas = quantidadeCaixas;
     }
 
 }
