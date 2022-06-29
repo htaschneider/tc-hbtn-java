@@ -32,11 +32,11 @@ public class Pedido {
             if (produto instanceof Livro) {
                 Livro livro = (Livro) produto;
                 System.out.printf("Tipo: Livro  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n",
-                        livro.getTitulo(), livro.getPreco(), item.getQuantidade(), livro.getPreco());
+                        livro.getTitulo(), livro.obterPrecoLiquido(), item.getQuantidade(), livro.obterPrecoLiquido());
             } else {
                 Dvd dvd = (Dvd) produto;
                 System.out.printf("Tipo: Dvd  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n",
-                        dvd.getTitulo(), dvd.getPreco(), item.getQuantidade(), dvd.getPreco());
+                        dvd.getTitulo(), dvd.obterPrecoLiquido(), item.getQuantidade(), dvd.obterPrecoLiquido());
 
             }
         }
