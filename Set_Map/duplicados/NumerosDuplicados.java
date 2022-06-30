@@ -4,14 +4,16 @@ import java.util.TreeSet;
 public class NumerosDuplicados {
 
     public static TreeSet<Integer> buscar(int[] numeros) {
-        HashSet<Integer> duplicados = new HashSet<Integer>();
-        for (int n : numeros) {
-            duplicados.add(n);
+        TreeSet<Integer> doubles = new TreeSet<>();
+        HashSet<Integer> uniques = new HashSet<>();
+
+        for (int number : numeros) {
+            if (!uniques.add(number)) {
+                doubles.add(number);
+            }
         }
 
-        TreeSet<Integer> duplicadosOrdenados = new TreeSet<Integer>();
-        duplicadosOrdenados.addAll(duplicados);
-        return duplicadosOrdenados;
+        return doubles;
     }
 
 }
