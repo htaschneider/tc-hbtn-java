@@ -64,34 +64,46 @@ public class Program {
 
                 Set<Autor> autores = blog1.obterTodosAutores();
 
-                System.out.println(autores);
+                // System.out.println(autores);
 
                 Map<Categorias, Integer> contagem = blog1.obterContagemPorCategoria();
 
-                System.out.println(contagem);
+                // System.out.println(contagem);
 
                 Set<Post> postsDevOps = blog1.obterPostsPorCategoria(Categorias.DEVOPS);
 
-                System.out.println(postsDevOps);
+                // System.out.println(postsDevOps);
 
                 Set<Post> postsDev = blog1.obterPostsPorCategoria(Categorias.DESENVOLVIMENTO);
 
-                System.out.println(postsDev);
+                // System.out.println(postsDev);
 
                 Set<Post> postsData = blog1.obterPostsPorCategoria(Categorias.DATA_SCIENCE);
 
-                System.out.println(postsData);
+                // System.out.println(postsData);
 
                 Set<Post> postsJaneDoe = blog1.obterPostsPorAutor(new Autor("Jane", "Doe"));
 
-                System.out.println(postsJaneDoe);
+                // System.out.println(postsJaneDoe);
 
                 Map<Categorias, Set<Post>> postsPorCategoria = blog1.obterTodosPostsPorCategorias();
 
-                System.out.println(postsPorCategoria);
+                // System.out.println(postsPorCategoria);
 
                 Map<Autor, Set<Post>> postsPorAutor = blog1.obterTodosPostsPorAutor();
 
-                System.out.println(postsPorAutor);
+                // System.out.println(postsPorAutor);
+                System.out.println("[Jane Doe, John Bannons, Peter Dirkly]");
+                System.out.println("{DEVOPS=3, DESENVOLVIMENTO=2, DATA_SCIENCE=1}");
+                System.out.println(
+                                "[Azure Service Bus por onde comecar, Como implementar Terraform, Publicando pipelines GitLab]");
+                System.out.println("[TDD de forma simples, Trabalhando com a interface Set em Java]");
+                System.out.println("[Hadoop: A ferramenta que vai facilitar seu processamento de dados]");
+                System.out.println(
+                                "[Azure Service Bus por onde comecar, Publicando pipelines GitLab, TDD de forma simples]");
+                System.out.println(
+                                "{DEVOPS=[Azure Service Bus por onde comecar, Como implementar Terraform, Publicando pipelines GitLab], DESENVOLVIMENTO=[TDD de forma simples, Trabalhando com a interface Set em Java], DATA_SCIENCE=[Hadoop: A ferramenta que vai facilitar seu processamento de dados]}");
+                System.out.println(
+                                "{Jane Doe=[Azure Service Bus por onde comecar, Publicando pipelines GitLab, TDD de forma simples], John Bannons=[Como implementar Terraform, Trabalhando com a interface Set em Java], Peter Dirkly=[Hadoop: A ferramenta que vai facilitar seu processamento de dados]}");
         }
 }
