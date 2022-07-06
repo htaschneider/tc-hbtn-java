@@ -28,4 +28,12 @@ public class Pedido {
         return frete;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
 }
