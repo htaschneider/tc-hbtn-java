@@ -1,13 +1,13 @@
 public class Jornal extends Midia {
-    private int quantidadeDeArtigos;
+    private int quantidadeArtigos;
 
     public Jornal(String nome, int quantidadeDeArtigos) {
         super(nome);
-        this.quantidadeDeArtigos = quantidadeDeArtigos;
+        this.quantidadeArtigos = quantidadeDeArtigos;
     }
 
     public int getQuantidadeDeArtigos() {
-        return quantidadeDeArtigos;
+        return quantidadeArtigos;
     }
 
 }
