@@ -9,10 +9,11 @@ public class Blog {
     }
 
     public void adicionarPostagem(Post post) throws Exception {
-        for (Post p : posts) {
-            if (p.getTitulo().equals(post.getTitulo()) && p.getAutor().equals(post.getAutor())) {
-                throw new Exception("Postagem jah existente");
-            }
+        boolean postExiste = posts.stream()
+                .anyMatch(p -> p.getTitulo().equals(post.getTitulo()) && p.getAutor().equals(post.getAutor()));
+
+        if (postExiste) {
+            throw new Exception("Postagem jah existente");
         }
 
         posts.add(post);
@@ -22,15 +23,8 @@ public class Blog {
         return posts.stream().map(Post::getAutor).collect(toSet());
     }
 
-    public Map<Categorias, Integer> obterContagemPorCategoria() {
-        Map<Categorias, Integer> contagem = new HashMap<Categorias, Integer>();
-        for (Post post : posts) {
-            if (!contagem.containsKey(post.getCategoria())) {
-                contagem.put(post.getCategoria(), 0);
-            }
-            contagem.put(post.getCategoria(), contagem.get(post.getCategoria()) + 1);
-        }
-        return contagem;
+    public Map<Categorias, Long> obterContagemPorCategoria() {
+        return posts.stream().collect(groupingBy(Post::getCategoria, counting()));
     }
 
     public Set<Post> obterPostsPorCategoria(Categorias categoria) {
@@ -42,25 +36,11 @@ public class Blog {
     }
 
     public Map<Categorias, Set<Post>> obterTodosPostsPorCategorias() {
-        Map<Categorias, Set<Post>> postsPorCategoria = new HashMap<Categorias, Set<Post>>();
-        for (Post post : posts) {
-            if (!postsPorCategoria.containsKey(post.getCategoria())) {
-                postsPorCategoria.put(post.getCategoria(), new HashSet<Post>());
-            }
-            postsPorCategoria.get(post.getCategoria()).add(post);
-        }
-        return postsPorCategoria;
+        return posts.stream().collect(groupingBy(Post::getCategoria, toSet()));
     }
 
     public Map<Autor, Set<Post>> obterTodosPostsPorAutor() {
-        Map<Autor, Set<Post>> postsPorAutor = new HashMap<Autor, Set<Post>>();
-        for (Post post : posts) {
-            if (!postsPorAutor.containsKey(post.getAutor())) {
-                postsPorAutor.put(post.getAutor(), new HashSet<Post>());
-            }
-            postsPorAutor.get(post.getAutor()).add(post);
-        }
-        return postsPorAutor;
+        return posts.stream().collect(groupingBy(Post::getAutor, toSet()));
     }
 
 }
