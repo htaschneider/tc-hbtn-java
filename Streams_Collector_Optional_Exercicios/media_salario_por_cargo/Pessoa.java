@@ -35,4 +35,8 @@ public class Pessoa implements Comparable<Pessoa> {
     public double getSalario() {
         return salario;
     }
+
+    public int getIdade() {
+        return idade;
+    }
 }

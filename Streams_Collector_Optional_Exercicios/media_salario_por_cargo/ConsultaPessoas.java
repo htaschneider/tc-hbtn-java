@@ -11,6 +11,11 @@ public class ConsultaPessoas {
         return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo, Collectors.counting()));
     }
 
+    public static Map<String, Map<Integer, Long>> obterContagemPessoasPorCargoEIdade(List<Pessoa> pessoas) {
+        return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo,
+                Collectors.groupingBy(Pessoa::getIdade, Collectors.counting())));
+    }
+
     public static Map<String, Double> obterMediaSalarioPorCargo(List<Pessoa> pessoas) {
         return pessoas.stream()
                 .collect(Collectors.groupingBy(Pessoa::getCargo, Collectors.averagingDouble(Pessoa::getSalario)));
